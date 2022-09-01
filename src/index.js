@@ -3,8 +3,10 @@ const app = express()
 app.use(express.json())
 const connect = require("./config/db");
 const userController = require("./controller/user.controller");
+const authController = require("./controller/auth");
 
-app.use("/user",userController);
+app.use("/register",userController);
+app.use("/login",authController)
 
 app.listen(5000,async()=>{
     try{

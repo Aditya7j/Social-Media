@@ -3,7 +3,7 @@ const router = express.Router();
 const { User, validate } = require("../models/user.model");
 const bcrypt = require("bcrypt");
 
-router.post("/register", async (req, res) => {
+router.post("/", async (req, res) => {
 	try {
 		console.log("hey")
 		const { error } = validate(req.body);
@@ -24,14 +24,6 @@ router.post("/register", async (req, res) => {
 	}
 });
 
-router.get("/",async(req,res)=>{
-	try{
-		res.send("Hello")
-	}
-	catch(err){
-		res.send(err)
-	}
-})
 
 module.exports = router;
 
