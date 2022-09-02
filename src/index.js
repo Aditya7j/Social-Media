@@ -7,11 +7,15 @@ const connect = require("./config/db");
 const userController = require("./controller/user.controller");
 const authController = require("./controller/auth");
 const feedController = require("./controller/feed.controller");
+const commentController = require("./controller/comment.controller");
+const likeController = require("./controller/like.controller")
 
 
 app.use("/register",userController);
 app.use("/login",authController);
-app.use("/feed",feedController)
+app.use("/feed",feedController);
+app.use("/comment",commentController);
+app.use("/like",likeController)
 
 app.listen(5000,async()=>{
     try{
