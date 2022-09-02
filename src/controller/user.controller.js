@@ -25,5 +25,16 @@ router.post("/", async (req, res) => {
 });
 
 
+router.get("/",async(req,res)=>{
+    try{
+        const user = await User.find().lean().exec()
+        res.status(200).send(user)
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+})
+
+
 module.exports = router;
 
