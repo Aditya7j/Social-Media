@@ -30,4 +30,14 @@ router.get("/",async(req,res)=>{
     }
 })
 
+router.delete("/",async(req,res)=>{
+    try{
+        const feed = await Feed.findByIdAndDelete(req.params.id).lean().exec()
+        res.status(200).send(feed)
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+})
+
 module.exports = router;

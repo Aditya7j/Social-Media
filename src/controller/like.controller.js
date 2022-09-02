@@ -4,9 +4,7 @@ const router = express.Router()
 
 router.post("/:feed_id",async(req,res)=>{
     try{
-        console.log("hello")
         let like = await Like.findOne({feed_id:req.params.feed_id});
-        console.log(like)
         if(like){
             like = await Like.findOneAndUpdate({feed_id:req.params.feed_id},{
                 feed_id:req.params.feed_id,
