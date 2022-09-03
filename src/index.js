@@ -10,6 +10,8 @@ const feedController = require("./controller/feed.controller");
 const commentController = require("./controller/comment.controller");
 const likeController = require("./controller/like.controller")
 
+const PORT = process.env.PORT || 5000
+
 
 app.use("/register",userController);
 app.use("/login",authController);
