@@ -17,7 +17,8 @@ app.use("/feed",feedController);
 app.use("/comment",commentController);
 app.use("/like",likeController)
 
-app.listen(5000,async()=>{
+
+app.listen(PORT,async()=>{
     try{
         await connect()
         console.log("Listening on Port 5000")
@@ -26,3 +27,4 @@ app.listen(5000,async()=>{
         console.error(err)
     }
 })
+

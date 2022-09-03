@@ -10,4 +10,6 @@ const feedSchema = new mongoose.Schema({
 })
 
 const Feed = mongoose.model("feed",feedSchema)
+
+
 module.exports = Feed;

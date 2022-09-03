@@ -2,6 +2,18 @@ const express = require("express");
 const router = express.Router();
 const { User, validate } = require("../models/user.model");
 const bcrypt = require("bcrypt");
+const authenticate = require("../middleware/auth");
+
+
+router.get("/auth",authenticate,async(req,res)=>{
+	try{
+		const user = await User.find().lean().exec()
+		res.status(200).send(user)
+	}
+	catch(err){
+		res.status(500).send(err)
+	}
+})
 
 router.post("/", async (req, res) => {
 	try {
@@ -34,6 +46,8 @@ router.get("/",async(req,res)=>{
         res.status(500).send(err)
     }
 })
+
+
 
 
 module.exports = router;

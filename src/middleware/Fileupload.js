@@ -26,23 +26,27 @@ const storage = multer.diskStorage({
   }});
 
 
-  const uploadSingle = (fileKey)=>{
-      return function(req,res,next){
-          const uploadItem = upload.single(fileKey);
+  // const uploadSingle = (fileKey)=>{
+  //     return function(req,res,next){
+  //         const uploadItem = upload.single(fileKey);
 
-          uploadItem(req, res, function (err) {
+  //         uploadItem(req, res, function (err) {
             
-            if (err instanceof multer.MulterError) {
-              console.log(err)
-              return res.status(501).send(err);
+  //           if (err instanceof multer.MulterError) {
+  //             console.log(err)
+  //             return res.status(501).send(err);
 
-            } else if(err) {
-              console.log(err)
-              return res.status(502).send(err);
-            }
-            next();
-          })
-      }
-  }
+  //           } else if(err) {
+  //             console.log(err)
+  //             return res.status(502).send(err);
+  //           }
+  //           next();
+  //         })
+  //     }
+  // }
 
-  module.exports = {uploadSingle};
+
+
+  module.exports = {upload};
+
+
